@@ -25,12 +25,13 @@ def find_names(path):
     names = []
     for companys in os.listdir(path):
         if '.html' in companys:
+            companys = companys.replace('.html', '')
             names.append(companys)
     return(names)
 
 def find_purposes(path):
     def find_purpose(name, path):
-        name = open(path + name, 'r')
+        name = open(path + name + '.html', 'r')
         for line in name:
             if 'Purpose: ' in line:
                 line = line.strip('\n')
